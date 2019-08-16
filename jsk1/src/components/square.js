@@ -1,39 +1,24 @@
 import React, {Component} from 'react';
 import '../App.css'
-
+import Board from '../components/board'
 
 
 
 export default class Square extends Component {
 
-    // handleClick = () => {
-    // // alert(this.props.index)
-    // const {index} = this.props
-    // this.props.foo(index)
-    // }
-    
-    clicking = (index) =>{
-    const {treasure, bomb, spaces}= this.props
- if(index === bomb){
-     spaces[index] = 'Boom'
-    
-     } else if (index === treasure) {
-         spaces[index] = 'Win'
-        
-     } 
-    // else {
-    //      spaces[index] = 'T'
-        
-    //  }
+    handle = () =>{
+        this.props.handleClick(this.props.index)
     }
+    
 
     render(){
-       // const {value, index} = this.props
+       let {value, index} = this.props
         return (
             <div> 
-                <button id = "square-styles" onClick={this.clicking}> Hello </button>
+                <button className = "square-styles" onClick={this.handle}> {value} </button>
                 
             </div>
             )
+            
     }
 }
